@@ -15,7 +15,7 @@ return {
     lsp_zero.setup_servers({
       'lua_ls',
       'ts_ls',
-      'deno',
+      'denols',
       'eslint',
       'gopls',
       'clangd',
