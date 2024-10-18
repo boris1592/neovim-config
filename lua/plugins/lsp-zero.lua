@@ -15,10 +15,11 @@ return {
     lsp_zero.setup_servers({
       'lua_ls',
       'ts_ls',
+      'deno',
       'eslint',
-      'rust_analyzer',
       'gopls',
       'clangd',
+      'rust_analyzer',
       'typst_lsp',
     })
 
