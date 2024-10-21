@@ -16,6 +16,7 @@ return {
       'lua_ls',
       'ts_ls',
       'eslint',
+      'pyright',
       'gopls',
       'clangd',
       'rust_analyzer',
