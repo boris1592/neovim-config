@@ -15,17 +15,10 @@ return {
     lsp_zero.setup_servers({
       'lua_ls',
       'ts_ls',
-      'eslint',
       'pyright',
       'gopls',
       'clangd',
       'rust_analyzer',
-      'typst_lsp',
-    })
-
-    lsp_zero.use('typst_lsp', {
-      -- Very weird that an LSP does this by default
-      settings = { exportPdf = 'never' },
     })
   end,
 }
