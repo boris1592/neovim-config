@@ -20,4 +20,3 @@ vim.opt.signcolumn = 'yes'
 
 vim.g.mapleader = ' '
 vim.o.termguicolors = true
-
