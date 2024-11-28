@@ -14,8 +14,6 @@ return {
 
     lsp_zero.setup_servers({
       'lua_ls',
-      'ts_ls',
-      'pyright',
       'gopls',
       'clangd',
       'rust_analyzer',
