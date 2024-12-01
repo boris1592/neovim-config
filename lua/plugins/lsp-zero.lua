@@ -17,6 +17,7 @@ return {
       'gopls',
       'clangd',
       'rust_analyzer',
+      'zls',
     })
   end,
 }
