@@ -1,6 +1,7 @@
 vim.o.nu = true
 vim.o.rnu = true
 vim.o.scrolloff = 8
+vim.o.hlsearch = false
 
 vim.o.tabstop = 2
 vim.o.softtabstop = 2
