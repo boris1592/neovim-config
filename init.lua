@@ -23,6 +23,7 @@ vim.cmd.colorscheme('carbonfox')
 require('gitsigns').setup({ current_line_blame = true })
 
 local fmt_group = vim.api.nvim_create_augroup('LspFormatting', {})
+
 local function on_attach_fmt(_, buf)
 	vim.api.nvim_clear_autocmds({ group = fmt_group, buffer = buf })
 	vim.api.nvim_create_autocmd('BufWritePre', {
@@ -37,7 +38,10 @@ for lsp, config in pairs({
 	gleam    = { on_attach = on_attach_fmt },
 	gopls    = {
 		on_attach = on_attach_fmt,
-		settings  = { gopls = { buildFlags = { '-tags=integration,api_tests' } } },
+		settings  = { gopls = {
+			buildFlags     = { '-tags=integration,api_tests' },
+			semanticTokens = false,
+		} },
 	},
 	lua_ls   = { on_attach = on_attach_fmt },
 	oxfmt    = { on_attach = on_attach_fmt },
@@ -55,7 +59,7 @@ end
 require('mini.completion').setup()
 vim.lsp.config('*', { capabilities = MiniCompletion.get_lsp_capabilities() })
 require('mini.icons').setup()
-require('mini.pick').setup()
+require('mini.pick').setup({ mappings = { choose_marked = '<C-y>' } })
 
 local languages = {
 	'gdscript',
@@ -81,8 +85,14 @@ vim.api.nvim_create_autocmd('FileType', {
 
 vim.keymap.set('n', '<leader><leader>', '<C-^>')
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
-vim.keymap.set('n', '-', ':Ex<CR>')
+vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
+vim.keymap.set('n', '-', '<cmd>Ex<CR>')
+vim.keymap.set('n', '<C-j>', '<cmd>cnext<CR>')
+vim.keymap.set('n', '<C-k>', '<cmd>cprev<CR>')
+
+-- ah, yes, the 'sane' defaults that make you press gr.. for every LSP action,
+-- except the most common one, for which you need to press CTRL-]
+vim.keymap.set('n', 'grd', vim.lsp.buf.definition)
 
 vim.keymap.set('n', '<leader>f', MiniPick.builtin.files)
 vim.keymap.set('n', '<leader>/', MiniPick.builtin.grep_live)
