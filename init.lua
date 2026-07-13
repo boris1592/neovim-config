@@ -54,24 +54,8 @@ end
 
 require('mini.completion').setup()
 vim.lsp.config('*', { capabilities = MiniCompletion.get_lsp_capabilities() })
-
 require('mini.icons').setup()
-
-require('mini.pick').setup({
-	window = {
-		config = function()
-			local height = math.ceil(0.75 * vim.o.lines)
-			local width = math.ceil(0.75 * vim.o.columns)
-			return {
-				anchor = 'NW',
-				height = height,
-				width = width,
-				row = 0,
-				col = math.floor(0.5 * (vim.o.columns - width)),
-			}
-		end
-	},
-})
+require('mini.pick').setup()
 
 local languages = {
 	'gdscript',

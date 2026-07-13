@@ -1,6 +1,6 @@
 # My neovim config
 
-A minimal configuration (~100 lines) that uses these plugins:
+A minimal configuration that uses these plugins:
 - [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
