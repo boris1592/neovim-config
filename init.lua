@@ -8,13 +8,23 @@ vim.g.mapleader = ' '
 vim.o.swapfile = false
 vim.diagnostic.config({ virtual_text = true })
 
+vim.keymap.set('n', '<leader><leader>', '<C-^>')
+vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
+vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
+vim.keymap.set('n', '-', '<cmd>Ex<CR>')
+vim.keymap.set('n', '<C-j>', '<cmd>cnext<CR>')
+vim.keymap.set('n', '<C-k>', '<cmd>cprev<CR>')
+-- ah, yes, the 'sane' defaults that make you press gr.. for every LSP action,
+-- except the most common one, for which you need to press CTRL-]
+vim.keymap.set('n', 'grd', vim.lsp.buf.definition)
+
 vim.pack.add({
 	'https://github.com/EdenEast/nightfox.nvim',
 	'https://github.com/lewis6991/gitsigns.nvim',
 	'https://github.com/neovim/nvim-lspconfig',
+	'https://github.com/nvim-lua/plenary.nvim', -- dependency of telescope
 	'https://github.com/nvim-mini/mini.completion',
-	'https://github.com/nvim-mini/mini.icons',
-	'https://github.com/nvim-mini/mini.pick',
+	'https://github.com/nvim-telescope/telescope.nvim',
 	'https://github.com/nvim-treesitter/nvim-treesitter',
 })
 
@@ -23,7 +33,6 @@ vim.cmd.colorscheme('carbonfox')
 require('gitsigns').setup({ current_line_blame = true })
 
 local fmt_group = vim.api.nvim_create_augroup('LspFormatting', {})
-
 local function on_attach_fmt(_, buf)
 	vim.api.nvim_clear_autocmds({ group = fmt_group, buffer = buf })
 	vim.api.nvim_create_autocmd('BufWritePre', {
@@ -58,8 +67,13 @@ end
 
 require('mini.completion').setup()
 vim.lsp.config('*', { capabilities = MiniCompletion.get_lsp_capabilities() })
-require('mini.icons').setup()
-require('mini.pick').setup({ mappings = { choose_marked = '<C-y>' } })
+
+require('telescope').setup()
+
+local telescope_builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>f', telescope_builtin.find_files)
+vim.keymap.set('n', '<leader>/', telescope_builtin.live_grep)
+vim.keymap.set('n', '<leader>b', telescope_builtin.buffers)
 
 local languages = {
 	'gdscript',
@@ -82,18 +96,3 @@ vim.api.nvim_create_autocmd('FileType', {
 		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 	end,
 })
-
-vim.keymap.set('n', '<leader><leader>', '<C-^>')
-vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
-vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
-vim.keymap.set('n', '-', '<cmd>Ex<CR>')
-vim.keymap.set('n', '<C-j>', '<cmd>cnext<CR>')
-vim.keymap.set('n', '<C-k>', '<cmd>cprev<CR>')
-
--- ah, yes, the 'sane' defaults that make you press gr.. for every LSP action,
--- except the most common one, for which you need to press CTRL-]
-vim.keymap.set('n', 'grd', vim.lsp.buf.definition)
-
-vim.keymap.set('n', '<leader>f', MiniPick.builtin.files)
-vim.keymap.set('n', '<leader>/', MiniPick.builtin.grep_live)
-vim.keymap.set('n', '<leader>b', MiniPick.builtin.buffers)
