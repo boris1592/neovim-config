@@ -1,0 +1,9 @@
+vim.o.nu = true
+vim.o.rnu = true
+vim.o.scrolloff = 8
+vim.o.hlsearch = false
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.g.mapleader = ' '
+vim.o.swapfile = false
+vim.diagnostic.config({ virtual_text = true })
