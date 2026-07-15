@@ -9,3 +9,4 @@ A minimal configuration that uses these plugins:
 - [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim)
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [oil.nvim](https://github.com/stevearc/oil.nvim)
