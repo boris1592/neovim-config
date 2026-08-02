@@ -18,7 +18,7 @@ return {
 			gopls    = {
 				on_attach = on_attach_fmt,
 				settings  = { gopls = {
-					buildFlags     = { '-tags=integration,api_tests' },
+					buildFlags     = { '-tags=integration,api_tests,wireinject' },
 					semanticTokens = false,
 				} },
 			},
