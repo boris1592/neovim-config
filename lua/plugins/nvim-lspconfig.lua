@@ -1,35 +1,35 @@
 return {
 	plugins = { 'https://github.com/neovim/nvim-lspconfig' },
 	setup = function()
-		local fmt_group = vim.api.nvim_create_augroup('LspFormatting', {})
+		local formatting_group = vim.api.nvim_create_augroup('LspFormatting', {})
 
-		local function on_attach_fmt(_, buf)
-			vim.api.nvim_clear_autocmds({ group = fmt_group, buffer = buf })
+		local function enable_lsp_formatting(_, buf)
+			vim.api.nvim_clear_autocmds({ group = formatting_group, buffer = buf })
 			vim.api.nvim_create_autocmd('BufWritePre', {
-				group = fmt_group,
+				group = formatting_group,
 				buffer = buf,
 				callback = function() vim.lsp.buf.format({ bufnr = buf }) end,
 			})
 		end
 
 		for lsp, config in pairs({
-			gdscript = {},
-			gleam    = { on_attach = on_attach_fmt },
-			gopls    = {
-				on_attach = on_attach_fmt,
-				settings  = { gopls = {
-					buildFlags     = { '-tags=integration,api_tests,wireinject' },
+			gdscript      = {},
+			gopls         = {
+				on_attach = enable_lsp_formatting,
+				settings = { gopls = {
+					buildFlags = { '-tags=integration,api_tests,wireinject' },
 					semanticTokens = false,
 				} },
 			},
-			lua_ls   = { on_attach = on_attach_fmt },
-			oxfmt    = { on_attach = on_attach_fmt },
-			oxlint   = {},
-			pyright  = {},
-			ruff     = { on_attach = on_attach_fmt },
-			tinymist = { on_attach = on_attach_fmt },
-			ts_ls    = {},
-			zls      = { on_attach = on_attach_fmt },
+			lua_ls        = { on_attach = enable_lsp_formatting },
+			oxfmt         = { on_attach = enable_lsp_formatting },
+			oxlint        = {},
+			pyright       = {},
+			ruff          = { on_attach = enable_lsp_formatting },
+			rust_analyzer = { on_attach = enable_lsp_formatting },
+			tinymist      = { on_attach = enable_lsp_formatting },
+			ts_ls         = {},
+			zls           = { on_attach = enable_lsp_formatting },
 		}) do
 			vim.lsp.enable(lsp)
 			vim.lsp.config(lsp, config)

@@ -3,11 +3,11 @@ return {
 	setup = function()
 		local languages = {
 			'gdscript',
-			'gleam',
 			'go',
 			'javascript',
 			'lua',
 			'python',
+			'rust',
 			'sql',
 			'typescript',
 			'typst',
