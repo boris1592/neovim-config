@@ -22,13 +22,13 @@ return {
 				} },
 			},
 			lua_ls        = { on_attach = enable_lsp_formatting },
-			oxfmt         = { on_attach = enable_lsp_formatting },
-			oxlint        = {},
+			-- oxfmt         = { on_attach = enable_lsp_formatting },
+			-- oxlint        = {},
 			pyright       = {},
 			ruff          = { on_attach = enable_lsp_formatting },
 			rust_analyzer = { on_attach = enable_lsp_formatting },
 			tinymist      = { on_attach = enable_lsp_formatting },
-			ts_ls         = {},
+			-- ts_ls         = {},
 			zls           = { on_attach = enable_lsp_formatting },
 		}) do
 			vim.lsp.enable(lsp)
