@@ -4,12 +4,10 @@ return {
 		local languages = {
 			'gdscript',
 			'go',
-			'javascript',
 			'lua',
 			'python',
 			'rust',
 			'sql',
-			'typescript',
 			'typst',
 			'zig',
 		}
