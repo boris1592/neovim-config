@@ -1,6 +1,9 @@
 vim.keymap.set('n', '<leader><leader>', '<c-^>')
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
 vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
+vim.keymap.set({ 'n', 'v' }, '<leader>g', function()
+	vim.fn.setreg('+', vim.api.nvim_buf_get_name(0) .. ':' .. vim.api.nvim_win_get_cursor(0)[1])
+end)
 vim.keymap.set('n', '<c-j>', '<cmd>cnext<cr>')
 vim.keymap.set('n', '<c-k>', '<cmd>cprev<cr>')
 -- ah, yes, the 'sane' defaults that make you press gr.. for every LSP action,
