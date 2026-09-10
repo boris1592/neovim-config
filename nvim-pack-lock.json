@@ -5,7 +5,7 @@
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "5be654f2232c10ddcad19c1607a67b6b4b78fc29",
+      "rev": "f2421c550618d257048afa650413d9e542ddbe67",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "mini.completion": {
@@ -20,22 +20,21 @@
       "rev": "127997ebef7ef632161203b960c5ef9d158f4810",
       "src": "https://github.com/nvim-mini/mini.statusline"
     },
-    "monokai-pro.nvim": {
-      "rev": "d8884d4473667c48bd17a68d08383d38839136a3",
-      "src": "https://github.com/loctvl842/monokai-pro.nvim",
-      "version": "'v2.1.1'"
-    },
     "nvim-lspconfig": {
-      "rev": "84252f9832fb5b9024fe9f7258e7c2aff915e6fb",
+      "rev": "ac9d2f7c4757db6320cab6697fe73e5e8adb2457",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "427e9222363d07c32d6db6169e4049c28d58d141",
+      "rev": "d4d59cb369da46b95699bd2200efbcffc6dadb3b",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "oil.nvim": {
       "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
       "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "sonokai": {
+      "rev": "b023c5280b16fe2366f5e779d8d2756b3e5ee9c3",
+      "src": "https://github.com/sainnhe/sonokai"
     }
   }
 }

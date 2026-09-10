@@ -6,7 +6,7 @@ A minimal configuration that uses these plugins:
 - [mini.completion](https://github.com/nvim-mini/mini.completion)
 - [mini.icons](https://github.com/nvim-mini/mini.icons)
 - [mini.statusline](https://github.com/nvim-mini/mini.statusline)
-- [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim)
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [oil.nvim](https://github.com/stevearc/oil.nvim)
+- [sonokai](https://github.com/sainnhe/sonokai)
