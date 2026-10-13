@@ -2,7 +2,7 @@ local to_install = {}
 local to_setup = {}
 
 for _, path in ipairs({
-	'eye-candy',
+	'colors',
 	'fzf-lua',
 	'gitsigns-nvim',
 	'mini-completion',
