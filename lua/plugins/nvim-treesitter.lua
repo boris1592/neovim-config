@@ -2,6 +2,7 @@ return {
 	plugins = { 'https://github.com/nvim-treesitter/nvim-treesitter' },
 	setup = function()
 		local languages = {
+			'c3',
 			'gdscript',
 			'go',
 			'lua',

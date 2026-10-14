@@ -26,7 +26,6 @@ return {
 			ruff          = { on_attach = enable_lsp_formatting },
 			rust_analyzer = { on_attach = enable_lsp_formatting },
 			tinymist      = { on_attach = enable_lsp_formatting },
-			zls           = { on_attach = enable_lsp_formatting },
 		}) do
 			vim.lsp.enable(lsp)
 			vim.lsp.config(lsp, config)
