@@ -7,3 +7,4 @@ vim.o.shiftwidth = 2
 vim.g.mapleader = ' '
 vim.o.swapfile = false
 vim.diagnostic.config({ virtual_text = true })
+vim.o.cc = "80"
